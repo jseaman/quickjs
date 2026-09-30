@@ -172,7 +172,7 @@ static inline int ctz32(unsigned int a)
 #ifdef _MSC_VER
     unsigned long idx;
     _BitScanForward(&idx, a);
-    return 31 ^ idx;
+    return idx;
 #else
     return __builtin_ctz(a);
 #endif
@@ -184,7 +184,7 @@ static inline int ctz64(uint64_t a)
 #ifdef _MSC_VER
     unsigned long idx;
     _BitScanForward64(&idx, a);
-    return 63 ^ idx;
+    return idx;
 #else
     return __builtin_ctzll(a);
 #endif
